@@ -1,0 +1,1935 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="These are my study notes.">
+      
+      
+        <meta name="author" content="DC">
+      
+      
+      <link rel="icon" href="../../resources/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>python语言介绍 - Python必备知识</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Python必备知识" class="md-header__button md-logo" aria-label="Python必备知识" data-md-component="logo">
+      
+  <img src="../../resources/images/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python必备知识
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              python语言介绍
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        py基础(14)
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/0_OOP%E5%9F%BA%E6%9C%AC/" class="md-tabs__link">
+        OOP(10)
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/0_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%82%A8%E5%A4%87/" class="md-tabs__link">
+        网络并发(14)
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python必备知识" class="md-nav__button md-logo" aria-label="Python必备知识" data-md-component="logo">
+      
+  <img src="../../resources/images/favicon.ico" alt="logo">
+
+    </a>
+    Python必备知识
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          py基础(14)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="py基础(14)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          py基础(14)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          python语言介绍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        python语言介绍
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python语言特性
+  </a>
+  
+    <nav class="md-nav" aria-label="Python语言特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    解释型、编译型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    强、动
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    垃圾回收机制!!!
+  </a>
+  
+    <nav class="md-nav" aria-label="垃圾回收机制!!!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    变量存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    引用计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    标记-清除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分代回收
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    值类型与引用类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    字符编码
+  </a>
+  
+    <nav class="md-nav" aria-label="字符编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ascii" class="md-nav__link">
+    ASCII
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    Unicode编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    乱码是什么？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Python中的下划线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    环境变量
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        基本运算符和流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          数据类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据类型" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        数据类型之序列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        数据类型之哈希
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="函数" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        函数基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        函数高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="md-nav__link">
+        函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" class="md-nav__link">
+        文件处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          模块
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模块" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          模块
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_%E5%BF%85%E7%94%A8%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        必用模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        常用模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%8C%85/" class="md-nav__link">
+        模块导入与包
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          综合练习 -_-
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="综合练习 -_-" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          综合练习 -_-
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_%E5%BC%80%E8%83%83%E5%B0%8F%E8%8F%9C/" class="md-nav__link">
+        开胃小菜
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_%E9%A5%B6%E5%A4%B4%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        饶头训练
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_ATM_shopping/" class="md-nav__link">
+        项目
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          OOP(10)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OOP(10)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          OOP(10)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/0_OOP%E5%9F%BA%E6%9C%AC/" class="md-nav__link">
+        OOP基本
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/1_%E7%BB%A7%E6%89%BF%E5%92%8C%E7%BB%84%E5%90%88/" class="md-nav__link">
+        继承和组合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/2_%E5%A4%9A%E6%80%81%E4%B8%8E%E5%A4%9A%E6%80%81%E6%80%A7/" class="md-nav__link">
+        多态与多态性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/3_%E5%B0%81%E8%A3%85%E4%B8%8E%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        封装与接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/4_%E7%BB%91%E5%AE%9A%E4%B8%8E%E9%9D%9E%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        绑定与非绑定方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/5_%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        简单总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          进阶
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进阶" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          进阶
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/6_%E5%8F%8D%E5%B0%84%E3%80%81%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        反射、内置方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/7_%E5%85%83%E7%B1%BB/" class="md-nav__link">
+        元类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/8_%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="md-nav__link">
+        异常处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/10_%E5%A4%8D%E4%B9%A0/" class="md-nav__link">
+        复习
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/9_course_select/" class="md-nav__link">
+        项目
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          网络并发(14)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="网络并发(14)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          网络并发(14)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          网络编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="网络编程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          网络编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/0_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%82%A8%E5%A4%87/" class="md-nav__link">
+        计算机网络储备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/1_TCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+        TCP简单实现
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/2_TCP%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        TCP粘包问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/3_%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E3%80%81UDP/" class="md-nav__link">
+        文件传输、UDP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/4_socketserver%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        socketserver模块
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          并发编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="并发编程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/5_%E8%BF%9B%E7%A8%8B%E7%90%86%E8%AE%BA%E5%82%A8%E5%A4%87/" class="md-nav__link">
+        进程理论储备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/6_%E8%BF%9B%E7%A8%8B%E5%BC%80%E5%8F%91%E5%BF%85%E7%94%A8/" class="md-nav__link">
+        进程开发必用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/7_%E8%BF%9B%E7%A8%8B%E5%BC%80%E5%8F%91%E5%BF%85%E7%9F%A5/" class="md-nav__link">
+        进程开发必知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/8_%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B%21%21/" class="md-nav__link">
+        生产者消费者模型!!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/9_%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        线程开发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/10_GIL%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        GIL详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/11_%E8%BF%9B%E7%A8%8B%E6%B1%A0%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
+        进程池与线程池
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/12_%E5%8D%8F%E7%A8%8B/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/13_%E7%BD%91%E7%BB%9CIO%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        网络IO模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          项目
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          项目
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/14_%E6%89%8B%E6%92%B8ORM/" class="md-nav__link">
+        手撸ORM(简易版)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/15_%E4%BB%BF%E4%BC%98%E9%85%B7/" class="md-nav__link">
+        仿优酷
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/16_%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99/" class="md-nav__link">
+        脚本编写
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python语言特性
+  </a>
+  
+    <nav class="md-nav" aria-label="Python语言特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    解释型、编译型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    强、动
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    垃圾回收机制!!!
+  </a>
+  
+    <nav class="md-nav" aria-label="垃圾回收机制!!!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    变量存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    引用计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    标记-清除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分代回收
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    值类型与引用类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    字符编码
+  </a>
+  
+    <nav class="md-nav" aria-label="字符编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ascii" class="md-nav__link">
+    ASCII
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    Unicode编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    乱码是什么？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Python中的下划线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    环境变量
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>python语言介绍</h1>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">1.python语言的特性</span><span class="w"> </span>解释<span class="err">、</span>强<span class="err">、</span>动
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">2.python的垃圾回收机制</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">3.值类型</span><span class="k">(</span><span class="nv">值语义</span><span class="k">)</span>和引用类型<span class="k">(</span><span class="nv">引用语义</span><span class="k">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">4.字符编码</span><span class="w"> </span>ASCII<span class="err">、</span>unicode<span class="err">、</span>utf-8<span class="err">、</span>乱码..
+</code></pre></div>
+<h2 id="python">Python语言特性<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>解释</strong>｜编译型语言、<strong>强</strong>｜弱类型、<strong>动</strong>｜静类型</p>
+</blockquote>
+<h3 id="_1"><font color='orange'>解释型、编译型</font><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>参考链接: <code>http://c.biancheng.net/view/4136.html</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<code>https://zhuanlan.zhihu.com/p/38855233</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>https://www.jianshu.com/p/3bd1e1e44991</code></p>
+</blockquote>
+<p>刚开始接触Python的时, 老师就告诉我"python是解释型语言".. 这样的说法没错,但不够具体,不严谨.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">首先明确一点</span><span class="p">,</span><span class="n">python</span><span class="err">、</span><span class="n">java</span><span class="err">、</span><span class="n">c这些高级语言不管是编译型还是解释型</span><span class="p">,</span><span class="n">都需要转换成计算机能听得懂的机器语言</span><span class="p">(</span><span class="mi">01</span><span class="n">的二进制</span><span class="p">),</span><span class="n">而转换的过程就需要借助编译器或解释器</span><span class="o">.</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">编译型 VS 解释型</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="err">○</span> <span class="n">编译型语言</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  <span class="n">使用编译器</span><span class="p">,</span><span class="n">提前将所有源代码一次性转换成二进制指令</span><span class="p">,</span><span class="n">即生成一个可执行程序</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="err">“</span><span class="n">一次编译</span><span class="err">，</span><span class="n">无限次运行</span><span class="err">”</span><span class="p">,</span><span class="n">生成的可执行程序不再需要源代码和编译器</span><span class="p">,</span><span class="n">So</span><span class="p">,</span><span class="n">编译型语言可以脱离开发环境运行</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">但编译型语言不能跨平台</span><span class="p">,</span><span class="n">原因有二</span><span class="p">:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="mi">1</span><span class="o">&gt;</span> <span class="n">可执行程序不能跨平台</span><span class="p">,</span><span class="n">eg</span><span class="p">:</span><span class="n">不能将Windows下的可执行程序拿到Linux下使用</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="mi">2</span><span class="o">&gt;</span> <span class="n">源代码不能跨平台</span><span class="p">,</span><span class="n">eg</span><span class="p">:</span><span class="n">Windows平台下Sleep函数以毫秒为时间单位</span><span class="p">;</span><span class="n">Linux平台下则是以秒为单位</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="err">○</span> <span class="n">解释型语言</span><span class="p">:</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  <span class="n">使用解释器</span><span class="p">,</span><span class="n">每次执行程序都需要边转换边执行</span><span class="o">.</span><span class="n">只将用到的源代码转换成机器码</span><span class="p">(</span><span class="n">二进制</span><span class="p">),</span><span class="n">用不到的不需处理</span><span class="o">.</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="err">“</span><span class="n">一次编写</span><span class="p">,</span><span class="n">到处运行</span><span class="err">”</span> <span class="n">解释型语言是跨平台的</span><span class="p">,</span><span class="n">注意</span><span class="err">!</span><span class="n">所说的跨平台</span><span class="p">,</span><span class="n">是指源代码跨平台</span><span class="p">,</span><span class="n">而非解释器跨平台</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">eg</span><span class="p">:</span><span class="n">以Python为例</span><span class="p">,</span><span class="n">Python官方针对不同平台</span><span class="p">(</span><span class="n">比如</span> <span class="n">Windows</span><span class="err">、</span><span class="n">macOS</span><span class="err">、</span><span class="n">Linux</span><span class="p">)</span><span class="n">开发了不同的解释器</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">这些解释器遵守同样的语法</span><span class="p">,</span><span class="n">所以同一份源代码才能在不同平台上拥有相同的执行结果</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="sd">下载程序</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">当我们说</span><span class="s2">&quot;下载一个程序(软件)&quot;</span><span class="n">时</span><span class="p">,</span><span class="n">不同类型的语言有不同的含义</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>   <span class="n">对于编译型语言</span><span class="p">,</span><span class="n">下载到的是可执行文件</span><span class="p">,</span><span class="n">源代码被作者保留</span><span class="p">,</span><span class="n">所以编译型语言的程序一般是闭源的</span><span class="p">;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>   <span class="n">对于解释型语言</span><span class="p">,</span><span class="n">下载到的是所有源代码</span><span class="p">,</span><span class="n">因为作者不给源代码就没法运行</span><span class="p">,</span><span class="n">所以解释型语言的程序一般是开源的</span><span class="o">.</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="sd">python虚拟机</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="sd">    将需用到的py源代码/需执行的py文件 --(进行编译)-- 字节码 --(通过python的PVM虚拟机逐行解释)-- 机器码</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="n">随着Java等基于虚拟机的语言的兴起</span><span class="p">,</span><span class="n">我们不能再把语言纯粹地分成解释型和编译型这两种</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="n">Python是一门先编译后解释的语言</span><span class="o">.</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  <span class="n">编译的结果</span><span class="s2">&quot;字节码&quot;</span><span class="n">会放到内存的PyCodeObject中</span><span class="p">,</span><span class="n">若需持久化保存</span><span class="p">,</span><span class="n">会写入pyc文件</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>  <span class="n">什么时候需要pyc</span><span class="err">？</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="n">import的时候</span><span class="p">,</span><span class="n">会将import的模块编译成</span><span class="o">.</span><span class="n">pyc文件</span><span class="p">,</span><span class="n">便于下次运行加快效率</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="o">.</span><span class="n">pyc文件的过期</span><span class="p">:</span><span class="n">会跟import的模块最后的修改日期进行对比</span><span class="p">,</span><span class="n">若py文件</span><span class="o">/</span><span class="n">模块修改了</span><span class="p">,</span><span class="o">.</span><span class="n">pyc文件就会重新生成</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="c1"># -- python本质与java c# 一样,python程序的执行原理都可以用两个字概括 -- 虚拟机、字节码</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="mi">1</span><span class="o">&gt;</span> <span class="n">在demo</span><span class="o">.</span><span class="n">py真正运行之前</span><span class="p">,</span><span class="n">python编译器要对py文件中的源代码进行编译</span><span class="o">.</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="mi">2</span><span class="o">&gt;</span> <span class="n">在程序运行期间</span><span class="p">,</span><span class="n">编译结果存在于内存的PyCodeObject对象中</span><span class="p">,</span><span class="n">python结束运行后</span><span class="p">,</span><span class="n">若编译结果保存到了pyc文件中</span><span class="p">,</span><span class="n">那么下一次的运行相同的程序的时候</span><span class="p">,</span><span class="n">python会根据pyc文件中记录的编译结果直接建立内存中的PyCodeObject对象</span><span class="p">,</span><span class="n">而不用对源文件再次进行编译</span><span class="o">.</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="mi">3</span><span class="o">&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">py模块会对应一个PyCodeObject对象</span><span class="p">,</span><span class="n">而里面的代码块都会一一对应一个PycodeObject对象</span><span class="o">.</span><span class="n">是嵌套的</span><span class="err">!</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="mi">4</span><span class="o">&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">py对应的PyCodeObject对象包含其他PyCodeObject对象</span><span class="o">.</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="mi">5</span><span class="o">&gt;</span> <span class="n">作用域</span><span class="err">、</span><span class="n">代码块</span><span class="err">、</span><span class="n">scope的环境</span><span class="err">、</span><span class="n">PycodeObject对象都是嵌套的</span>
+</code></pre></div>
+<p>我想,正因为python支持跨平台,所以大家更愿意称python是解释型语言!</p>
+<p><img alt="" src="../assets/python%E8%A7%A3%E9%87%8A.png" /></p>
+<h3 id="_2"><font color='orange'>强、动</font><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>动态语言: <code>a = 10</code>, a不用指定int    运行时才会进行数据类型的检查</p>
+<p>强类型语言: <strong>变量的数据类型一旦被定义,那就不会再改变,除非进行强转</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 不同类型的变量不能进行运算(不考虑隐式转换)  eg:  <code>5 - '3'</code>报错<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; python很少会自动进行隐式转换...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <code>5/2.5 = 2.0</code>  <font color='gray'> int类型和float类型计算会自动把int类型转换为float类型</font></p>
+<p><font color='gray'>悄悄告诉你,<strong>linux中的shell是弱类型语言</strong>,shell定义一个变量,随着调用方式的不同,数据类型可随意切换..</font>        </p>
+<hr />
+<h2 id="_3">垃圾回收机制!!!<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>参考:  <code>https://zhuanlan.zhihu.com/p/108683483</code> ★<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<code>https://zhuanlan.zhihu.com/p/83251959</code></p>
+</blockquote>
+<p><font color='brown'>Python引入了"标记-清除"与"分代回收"来分别解决引用计数的致命弱点循环引用和引用计数效率低的问题..</font></p>
+<h3 id="_4"><font color='orange'>变量存储</font><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>内存中有两块区域: <strong>栈区</strong> stack与 <strong>堆区</strong> heap.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在定义变量时, <em>变量名与值内存地址的关联关系</em> 存放于栈区 (<font color='brown'>命名空间</font>),<em>变量值</em> 存放于堆区, <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>内存管理回收的则是堆区的内容</strong><br />
+<font color='blue'>简单理解栈区和堆区,栈区由操作系统自动分配释放,堆区由开发人员分配释放;前者地址连续,具备后进先出的特性,后者地址不连续,类似于数据结构中的链表..</font></p>
+<p>举个栗子, 定义了两个变量 <code>x=10</code>, <code>y=20</code></p>
+<p><img alt="" src="../assets/%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A81.jpeg" /></p>
+<p>当我们执行 <code>x=y</code> 时, 内存中的栈区与堆区变化如下:</p>
+<p><img alt="" src="../assets/%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A82.jpeg" /> </p>
+<h3 id="_5"><font color='orange'>引用计数</font><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>引用计数:变量值被变量名关联的次数<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;当值不再被任何名字关联,值的引用计数为0时应该被gc机制回收</p>
+</blockquote>
+<p>○ 引用计数增加    --  创建a = 1、直接赋值 b=a 、 函数形参 、成为容器元素等<br />
+○ 引用计数减少    --     del、被重新赋值、容器销毁、删除容器元素等</p>
+<p>引用计数的 <strong><em>致命弱点</em></strong> : 容器元素的循环引用(也称交叉引用)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>   <span class="c1"># [1,2,3]的引用计数为1  </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>   <span class="c1"># [4,5,6]的引用计数为1  </span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># [4,5,6]的引用计数变为2</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>   <span class="c1"># [1,2,3]的引用计数变为2  </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">del</span> <span class="n">a</span>   <span class="c1"># [1,2,3]的引用计数变为1 </span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">del</span> <span class="n">b</span>   <span class="c1"># [4,5,6]的引用计数变为1</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">值不再被任何名字关联</span><span class="p">,</span><span class="n">值的引用计数为0</span><span class="p">,</span><span class="n">应该被回收但因为循环引用的存在不能被回收</span><span class="o">..</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">So</span><span class="p">,</span><span class="n">循环引用是致命的</span><span class="p">,</span><span class="n">这与手动进行内存管理所造成的内存泄露毫无区别</span><span class="o">..</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">Ps</span><span class="p">:</span><span class="n">魔法方法</span><span class="err">`</span><span class="fm">__del__</span><span class="err">`</span> <span class="n">析构函数</span>
+</code></pre></div>
+<h3 id="-"><font color='orange'>标记-清除</font><a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<p>标记/清除算法的做法是当应用程序可用的内存空间被耗尽的时, 就会停止整个程序,然后进行两项工作<br />
+第一项则是标记,第二项则是清除  以前面a、b列表的循环引用为例.</p>
+<p><img alt="" src="../assets/%E6%A0%87%E8%AE%B0_%E6%B8%85%E9%99%A4.jpeg" /> </p>
+<p>当我们同时删除a与b时,会清理到栈区中a与b的内容,只剩下堆区内二者的相互引用...<br />
+于是列表a与b都未被标记存活,二者会被清理掉,这样就解决了循环引用带来的内存泄漏问题!!!</p>
+<h3 id="_6"><font color='orange'>分代回收</font><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>基于引用计数的回收机制, 每次回收内存, 都需要把所有对象的引用计数都遍历一遍, 这是非常消耗时间的<br />
+于是引入了分代回收来提高回收效率, 分代回收采用的是用“<strong>空间换时间</strong>”的策略</p>
+</blockquote>
+<p><strong>核心思想</strong>: <font color='blue'>存活的越久的越不可能是垃圾</font></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">在历经多次扫描的情况下</span><span class="p">,</span><span class="n">都没有被回收的变量</span><span class="p">,</span><span class="n">gc机制就会认为</span><span class="p">,</span><span class="n">该变量是经常用的变量</span><span class="p">,</span><span class="n">gc对其扫描的频率会降低</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">分代指的是根据存活时间来为变量划分不同等级</span><span class="p">(</span><span class="n">也就是不同的代</span><span class="p">),</span><span class="n">回收依然是使用引用计数作为回收的依据</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">假设gc机制划分了3个代</span><span class="p">:</span> <span class="n">新生代</span><span class="err">、</span><span class="n">青春代</span><span class="err">、</span><span class="n">老年代</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="mi">1</span><span class="o">&gt;</span> <span class="n">新定义的变量</span><span class="p">,</span><span class="n">放到新生代这个等级中</span><span class="p">,</span><span class="n">假设每隔1分钟扫描新生代一次</span><span class="p">,</span><span class="n">如果发现变量依然被引用</span><span class="p">,</span><span class="n">那么该对象的权重</span><span class="p">(</span><span class="n">权重本质就是个整数</span><span class="p">)</span><span class="n">加一</span><span class="p">;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="mi">2</span><span class="o">&gt;</span> <span class="n">当变量的权重大于某个设定得值</span><span class="p">(</span><span class="n">假设为3</span><span class="p">),</span><span class="n">会将它移动到更高一级的青春代</span><span class="p">,</span><span class="n">青春代的gc扫描的频率低于新生代</span><span class="p">(</span><span class="n">扫描时间间隔更长</span><span class="p">);</span><span class="n">假设5分钟扫描青春代一次</span><span class="p">,</span><span class="n">这样每次gc需要扫描的变量的总个数就变少了</span><span class="p">,</span><span class="n">节省了扫描的总时间</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="mi">3</span><span class="o">&gt;</span> <span class="n">接下来</span><span class="p">,</span><span class="n">青春代中的对象</span><span class="p">,</span><span class="n">也会以同样的方式被移动到老年代中</span><span class="o">.</span><span class="n">也就是等级</span><span class="p">(</span><span class="n">代</span><span class="p">)</span><span class="n">越高</span><span class="p">,</span><span class="n">被垃圾回收机制扫描的频率越低</span><span class="o">..</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">分代回收的弊端</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>   <span class="n">例如一个变量刚刚从新生代移入青春代</span><span class="p">,</span><span class="n">该变量的绑定关系就解除了</span><span class="p">,</span><span class="n">该变量应该被回收</span><span class="p">,</span><span class="n">但青春代的扫描频率低于新生代</span><span class="p">,</span><span class="n">该变量的回收就会被延迟</span><span class="o">..</span>
+</code></pre></div>
+<hr />
+<h2 id="_7">值类型与引用类型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>变量分为  -- 值类型(值语义)和引用类型(引用语义)</p>
+<p>给爷刻在骨髓里:<br />
+<font color='red'><strong>引用是啥？引用就是指向.变量名指向自身绑定对象的内存地址!!</strong></font><br />
+<font color='red'><strong>一系列的绑定操作都是在传递某一对象的地址给某一变量名进行绑定!!</strong></font></p>
+</blockquote>
+<p><strong>值类型</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>int a = 10</code>  必须指定类型,a中只能存整数<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color='gray'>把变量的值直接保存在变量的存储区里,例如C语言,采用这种存储方式,每一个变量在内存中所占用的空间就要根据变量的实际大小而定,无法固定下来..</font></p>
+<p><strong>引用类型</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>a = 10</code> <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 问: a是数值10内存的别名？（X）;  a中存的是数值10？（X）<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 答: 这与上面的 变量存储 部分的内容交相呼应... 简单来说.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;a独立开发了一块空间(栈区), 里面保存(维护)的是&nbsp;变量名与10的内存地址的关联关系. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;因而&nbsp;指向数值10的内存地址,是id(10)的一个引用..</p>
+<p><font color='brown'>Python变量是引用语义,<strong>变量名</strong> 引用(指向) 绑定对象的<strong>内存地址</strong></font>  变量记录了对象在堆空间中的地址</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">百度谷歌查阅文档</span><span class="p">,</span><span class="n">很多文章中都会这样说</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="n">变量名只是给对应的内存地址起了个别名</span><span class="o">.</span><span class="n">就像是一个标签贴在了上面</span><span class="err">!!</span> <span class="err">☑️</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">变量即某一对象的内存地址</span><span class="o">..</span> <span class="err">☑️</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">刚接触python时</span><span class="p">,</span><span class="n">这样解释可以方便理解</span><span class="p">,</span><span class="n">但这些说法都是简说</span><span class="o">.</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">具体来说</span><span class="p">,</span><span class="n">python不会对变量名单独作存储</span><span class="o">.</span><span class="n">但会将变量名与值内存地址的关联关系存到栈区</span><span class="o">.</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">(</span><span class="n">每个</span><span class="s2">&quot;变量名:id(值)&quot;</span><span class="n">在栈区中的所占空间的大小都是一样的</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">记住</span><span class="err">!</span><span class="n">在python里</span><span class="p">,</span><span class="n">该栈区有个专业名词</span><span class="p">,</span><span class="n">叫做命名空间</span><span class="err">!!</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">要条件反射</span><span class="p">,</span><span class="n">一旦看到某变量名</span><span class="p">,</span><span class="n">就要知道指的是命名空间中该变量名与对象内存地址的关联关系</span><span class="o">.</span>
+</code></pre></div>
+<p><strong>"'变量被赋值 = 变量被引用'"</strong><br />
+ <font color='brown'>绑定操作(eg 赋值)就是传递某一对象的内存地址, 接收/被绑定/被赋值 的变量与该内存地址进行绑定 </font></p>
+<p>​                                      <img alt=" " src="../assets/%E5%BC%95%E7%94%A8%E8%AF%AD%E4%B9%89.png" /> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">举个赋值操作中最简单的例子</span><span class="p">:</span> 
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  <span class="n">a</span><span class="o">=</span><span class="mi">10</span> <span class="n">b</span><span class="o">=</span><span class="n">a</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  <span class="n">内存</span><span class="p">(</span><span class="n">堆区</span><span class="p">)</span>  <span class="o">&gt;&gt;</span> <span class="n">内存地址xb001存储数值10</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="n">命名空间</span><span class="p">(</span><span class="n">栈区</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">xb201</span><span class="p">:</span> <span class="n">a</span><span class="o">--</span><span class="n">xb001</span>  <span class="n">xb202</span><span class="p">:</span> <span class="n">b</span><span class="o">--</span><span class="n">xb001</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># -- 传递对象10的内存地址</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">a开辟一块空间维护数值10的内存地址</span> <span class="n">a并没有存10这个值</span><span class="p">,</span><span class="n">而是将a变量名与变量值10的地址绑定在了一起</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>  <span class="c1"># -- 传递变量a绑定对象的内存地址</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="s1">&#39;被赋值 = 被引用&#39;</span> <span class="n">等式右边先执行</span><span class="p">,</span><span class="n">首先右边的a变量肯定是能找到的</span><span class="p">,</span><span class="n">否则会报错</span><span class="o">.</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">a变量被引用</span><span class="p">,</span><span class="n">拿到a与其关联的内存地址xb001传递给b变量</span><span class="o">.</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">因为python内部的优化机制</span><span class="p">,</span><span class="n">只需将数值10的引用计数加1即可</span><span class="o">.</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>  <span class="c1"># -- 传递一个新对象的内存地址</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="err">“</span><span class="o">=</span><span class="err">“</span><span class="n">等号右边的x</span><span class="err">、</span><span class="n">y变量被引用</span><span class="p">,</span><span class="n">找到各自绑定对象的值进行运算</span><span class="p">,</span><span class="n">将运算后的对象的内存地址传递给变量z</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="s2">&quot;引用&quot;</span> <span class="n">这个概念</span><span class="p">,</span><span class="n">深浅拷贝</span><span class="err">、</span><span class="n">函数参数的传递等都与其息息相关</span><span class="o">..</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="s2">&quot;python中函数参数的传递&quot;</span> <span class="n">都是引用</span><span class="p">,</span><span class="n">只是要区分引用的对象可变与不可变罢啦</span><span class="o">..</span>
+</code></pre></div>
+<hr />
+<h2 id="_8">字符编码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>首先要知道 在计算机中存储的数据是0101011111的样子,01的高低电平. <br />
+b位|比特; B字节; kB千字节;M;G;T   1byte == 8bit  </p>
+</blockquote>
+<h3 id="ascii"><font color='orange'>ASCII</font><a class="headerlink" href="#ascii" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>特点: 只有英文字符与数字的一一对应关系,一个英文字符占用1byte</p>
+</blockquote>
+<p>我们可以算一算, 一个字节包含8个bit比特位(8个二进制位),每个位置都可以选择填入0或者1<br />
+所以可以表示2^8=256个字符..  256个字符包含了英文字母以及一些符号. <br />
+这就是熟知的 ASCII 编码. 十进制表示:0-127.</p>
+<h3 id="unicode"><font color='orange'>Unicode编码</font><a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h3>
+<p>为了让计算机识别自己国家的语言和英文,中国人订制了GBK..韩国人制定了Euc-kr...<br />
+GBK表的特点: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&gt; 只有中文字符、英文字符与数字的一一对应关系 (Euc-kr同理)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&gt; 一个英文字符对应1Bytes    2^8=256 可表示所有英文字符<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&gt; 一个中文字符对应2Bytes     2^16=65536 可表示所有中文字符</p>
+<p>为了将所有语言统一到一套编码里面,就产生了Unicode编码(所有字符都占用2字节).</p>
+<p>UTF-8编码(可变长): <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unicode编码中的一个英文字符会占用两个字节, 若英文字符很多,会浪费大量存储空间以及数据从内存写入硬盘的IO时间... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以有了UTF-8编码,该编码中一个英文字符占1Bytes,一个中文字符占3Bytes,生僻字用更多的Bytes存储</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">注意一点</span><span class="p">:</span><span class="n">文本编辑器输入任何字符都是最先存在于内存中</span><span class="p">,</span><span class="n">是unicode编码的</span><span class="p">,</span><span class="n">从内存存放于硬盘的过程中数据可以转换成任意其他编码</span><span class="o">.</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">举个例子</span><span class="p">,</span><span class="n">文本编辑器中写入多国的字符</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  <span class="n">多国字符</span><span class="err">—√—》</span><span class="n">内存</span><span class="p">(</span><span class="n">unicode格式的二进制</span><span class="p">)</span> <span class="err">——√—》</span><span class="n">硬盘</span><span class="p">(</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="n">格式的二进制</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">编码encode</span><span class="p">:</span> <span class="n">字符</span><span class="o">--</span><span class="n">内存</span><span class="o">--</span><span class="n">硬盘</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="n">由字符转换成内存中的unicode</span><span class="p">,</span><span class="n">以及由unicode转换成其他编码的过程</span> 
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  <span class="n">若文件中包含汉字</span><span class="err">、</span><span class="n">韩文等多国语言</span><span class="p">,</span><span class="n">unicode能识别多国字符</span><span class="p">,</span><span class="n">但GBK不行</span><span class="p">,</span><span class="n">所以往硬盘中存储的时候</span><span class="p">,</span><span class="n">会使用utf</span><span class="o">-</span><span class="mi">8</span><span class="p">(</span><span class="n">节省空间</span><span class="err">、</span><span class="n">减少IO</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">解码decode</span><span class="p">:</span> <span class="n">硬盘</span><span class="o">--</span><span class="n">内存</span><span class="o">--</span><span class="n">字符</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  <span class="n">由其他编码转换成unicode</span><span class="p">,</span><span class="n">以及由内存中的unicode转换成字符的过程</span> 
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">有三个问题</span><span class="p">(</span><span class="n">不想深究了</span> <span class="n">记住他三都是对的就行</span><span class="p">):</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  <span class="mf">1.</span><span class="n">为啥存在内存中的字符编码格式不用utf</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="n">而是unicode</span><span class="err">?</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  <span class="mf">2.</span><span class="n">unicode编码是如何转成其他编码的</span><span class="err">?</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  <span class="mf">3.</span><span class="n">为何只有unicode才会与字符相对应</span><span class="p">(</span><span class="n">文本编辑器输入任何字符都是最先存在于内存中</span><span class="p">,</span><span class="n">是unicode编码的导致的</span><span class="err">?</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_9"><font color='orange'>乱码是什么？</font><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>归根到底,中间有个unicode在作祟...</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># -*- coding:utf-8 -*-  指明该文件写入硬盘时采用的编码格式</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;上&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">在python2中</span><span class="p">,</span><span class="n">将</span><span class="s2">&quot;上&quot;</span><span class="n">从硬盘读入内存的解码格式是根据文件头的编码格式决定的</span><span class="p">,</span><span class="n">这里是utf</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="n">没有文件头的话</span><span class="p">,</span><span class="n">就用编译器默认的编码</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">在打印x时</span><span class="p">,</span><span class="n">pycharm发现</span><span class="s2">&quot;上&quot;</span><span class="n">对应的字符编码是utf</span><span class="o">-</span><span class="mi">8</span><span class="p">,(</span><span class="n">只有unicode才会直接对应字符</span><span class="p">),</span><span class="n">所以需要进行了解码</span><span class="o">..</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">pycharm默认的编码就是utf</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="n">所以能正确显示</span><span class="o">..</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">但用windows的cmd运行该代码</span><span class="p">,</span><span class="n">会乱码</span><span class="p">,</span><span class="n">因为windows</span> <span class="n">cmd的默认编码是gbk</span><span class="o">..</span><span class="n">若使用cmd的默认编码</span><span class="o">.</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="s2">&quot;上&quot;</span><span class="n">用utf</span><span class="o">-</span><span class="mi">8</span><span class="n">编码到硬盘中的</span><span class="p">,</span><span class="n">用gbk从硬盘中解码就会乱码</span><span class="o">..</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">python2的解决方案就是</span> <span class="n">x</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;上&quot;</span> <span class="n">保证</span><span class="s2">&quot;上&quot;</span><span class="n">在内存中的编码是unicode</span><span class="o">..</span> 
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">在python3中</span><span class="p">,</span><span class="n">不需要文件头</span><span class="p">,</span><span class="n">在内存中的编码格式都是unicode</span><span class="err">!!</span><span class="n">So不管在pychrm还是windows</span> <span class="n">cmd上都能正确显示</span><span class="err">!!!</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">(</span><span class="n">简单理解</span> <span class="n">字符与unicode是一起的</span><span class="err">!!!</span><span class="n">别分解成</span> <span class="n">字符</span><span class="o">--</span><span class="n">encode</span><span class="o">--</span><span class="n">unicode啦</span><span class="o">..</span> <span class="n">我累了</span><span class="o">.</span><span class="p">)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="n">具体来说</span><span class="p">,</span><span class="n">python3中字节bytes与Unicode字符的转化</span><span class="p">:</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="nb">bytes</span><span class="p">:</span><span class="n">包含8位的二进制数</span><span class="p">;</span> 
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="nb">str</span><span class="p">:</span><span class="n">包含unicode字符</span><span class="o">.</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="n">Unicode字符</span> <span class="o">==&gt;</span> <span class="err">`</span><span class="n">encode</span><span class="p">()</span><span class="err">`</span> <span class="o">==&gt;</span> <span class="n">bytes二进制数据</span>  <span class="n">即</span> <span class="n">字符</span> <span class="n">encode</span> <span class="n">二进制</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="n">bytes二进制数据</span> <span class="o">==&gt;</span> <span class="err">`</span><span class="n">decode</span><span class="p">()</span><span class="err">`</span> <span class="o">==&gt;</span> <span class="n">Unicode字符</span>  <span class="n">即</span> <span class="n">二进制</span> <span class="n">decode</span> <span class="n">字符</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="sd">chr() 将一个整数转换为一个Unicode字符</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="sd">ord() 将一个字符转换为它的ASCII整数值</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="python_1">Python中的下划线<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/%E4%B8%8B%E5%88%92%E7%BA%BF.png" /></p>
+<hr />
+<h2 id="_10">环境变量<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Cpython就是翻译工作</span><span class="p">,</span><span class="n">将python代码翻译成计算机能听懂的</span><span class="err">!</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="mf">1.</span> <span class="n">环境变量</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   <span class="o">-</span> <span class="n">在命令行下</span><span class="p">,</span><span class="n">使用可执行文件</span><span class="p">,</span><span class="n">需要到可执行文件的路径下执行</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>   <span class="o">-</span> <span class="n">若想在任意路径下执行可执行文件</span><span class="p">,</span><span class="n">就需要在环境变量里配置</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="mf">2.</span> <span class="n">设置环境变量</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>   <span class="o">-</span> <span class="n">用户变量</span><span class="p">:</span> <span class="n">当前用户登陆到系统</span><span class="p">,</span><span class="n">能够识别的环境变量</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>   <span class="o">-</span> <span class="n">系统变量</span><span class="p">:</span> <span class="n">所有用户登陆到系统</span><span class="p">,</span><span class="n">能够识别的环境变量</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>     <span class="o">-</span> <span class="n">python配置</span><span class="p">:</span> <span class="n">安装时</span><span class="p">,</span><span class="n">add</span> <span class="n">to</span> <span class="n">path选中</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>       <span class="o">-</span> <span class="n">python安装路径</span><span class="p">:</span> <span class="n">找到</span> <span class="n">python</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>       <span class="o">-</span> <span class="n">python安装路径的script路径</span><span class="p">:</span> <span class="n">找到</span> <span class="n">pip</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="mf">3.</span> <span class="n">需要注意</span><span class="p">,</span><span class="n">在终端输入的python</span><span class="err">、</span><span class="n">pip</span> <span class="n">install</span><span class="p">,</span><span class="n">执行的是哪个环境</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>   <span class="n">与在环境变量里设置的先后顺序有关</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="mf">4.</span> <span class="n">pycharm中开发项目</span><span class="p">,</span><span class="n">需要注意使用的解释器是哪个</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>   <span class="n">pycharm可以创建虚拟环境</span><span class="p">,</span><span class="n">虚拟环境用于解决版本共存的问题</span><span class="o">.</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="n">mac而言</span><span class="p">:</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>  <span class="n">默认在</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span> <span class="n">这个路径下</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>  <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">3.8</span><span class="o">/</span><span class="nb">bin</span> <span class="n">有unix可执行文件pip</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>  <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">3.8</span> <span class="n">有个unix可执行文件python</span>
+</code></pre></div>
+<p><img alt="" src="../assets/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.jpeg" /></p>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+      
+        
+        <a href="../01_%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-footer__link md-footer__link--next" aria-label="下一页: 基本运算符和流程控制" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              基本运算符和流程控制
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 from Dc_OnePiece
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.instant", "navigation.tracking", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+        <script src="../../resources/js/extra.js"></script>
+      
+    
+  </body>
+</html>

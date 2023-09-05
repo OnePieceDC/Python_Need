@@ -1,0 +1,2583 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="These are my study notes.">
+      
+      
+        <meta name="author" content="DC">
+      
+      
+      <link rel="icon" href="../../resources/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>函数基础 - Python必备知识</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Python必备知识" class="md-header__button md-logo" aria-label="Python必备知识" data-md-component="logo">
+      
+  <img src="../../resources/images/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python必备知识
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              函数基础
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00_Python%E8%AF%AD%E8%A8%80%E4%BB%8B%E7%BB%8D/" class="md-tabs__link md-tabs__link--active">
+        py基础(14)
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/0_OOP%E5%9F%BA%E6%9C%AC/" class="md-tabs__link">
+        OOP(10)
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/0_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%82%A8%E5%A4%87/" class="md-tabs__link">
+        网络并发(14)
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python必备知识" class="md-nav__button md-logo" aria-label="Python必备知识" data-md-component="logo">
+      
+  <img src="../../resources/images/favicon.ico" alt="logo">
+
+    </a>
+    Python必备知识
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          py基础(14)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="py基础(14)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          py基础(14)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Python%E8%AF%AD%E8%A8%80%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        python语言介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+        基本运算符和流程控制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          数据类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据类型" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        数据类型之序列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        数据类型之哈希
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="函数" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          函数
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          函数基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        函数基础
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    函数的定义调用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数参数传递
+  </a>
+  
+    <nav class="md-nav" aria-label="函数参数传递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    赋值操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    传递不可变对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    传递可变对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unboundlocalerror" class="md-nav__link">
+    UnboundLocalError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    函数形参和实参
+  </a>
+  
+    <nav class="md-nav" aria-label="函数形参和实参">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    定义函数时 -- 行参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    调用函数时 -- 实参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    默认形参陷阱
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    函数命名空间与作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="函数命名空间与作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    函数对象
+  </a>
+  
+    <nav class="md-nav" aria-label="函数对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    函数是第一类对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    函数嵌套定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    打破层级限制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    命名空间scope/栈区
+  </a>
+  
+    <nav class="md-nav" aria-label="命名空间scope/栈区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    命名空间概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    命名空间分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    命名空间与代码块的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    命名空间生命周期
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    变量加载查询顺序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legb" class="md-nav__link">
+    LEGB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globalslocals" class="md-nav__link">
+    globals()、locals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globalnonlocal" class="md-nav__link">
+    global、nonlocal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        函数高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="md-nav__link">
+        函数进阶
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" class="md-nav__link">
+        文件处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          模块
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模块" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          模块
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_%E5%BF%85%E7%94%A8%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        必用模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        常用模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%8C%85/" class="md-nav__link">
+        模块导入与包
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          综合练习 -_-
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="综合练习 -_-" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          综合练习 -_-
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_%E5%BC%80%E8%83%83%E5%B0%8F%E8%8F%9C/" class="md-nav__link">
+        开胃小菜
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_%E9%A5%B6%E5%A4%B4%E8%AE%AD%E7%BB%83/" class="md-nav__link">
+        饶头训练
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_ATM_shopping/" class="md-nav__link">
+        项目
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          OOP(10)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OOP(10)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          OOP(10)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/0_OOP%E5%9F%BA%E6%9C%AC/" class="md-nav__link">
+        OOP基本
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/1_%E7%BB%A7%E6%89%BF%E5%92%8C%E7%BB%84%E5%90%88/" class="md-nav__link">
+        继承和组合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/2_%E5%A4%9A%E6%80%81%E4%B8%8E%E5%A4%9A%E6%80%81%E6%80%A7/" class="md-nav__link">
+        多态与多态性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/3_%E5%B0%81%E8%A3%85%E4%B8%8E%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        封装与接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/4_%E7%BB%91%E5%AE%9A%E4%B8%8E%E9%9D%9E%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        绑定与非绑定方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/5_%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        简单总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          进阶
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进阶" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          进阶
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/6_%E5%8F%8D%E5%B0%84%E3%80%81%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        反射、内置方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/7_%E5%85%83%E7%B1%BB/" class="md-nav__link">
+        元类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/8_%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="md-nav__link">
+        异常处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/10_%E5%A4%8D%E4%B9%A0/" class="md-nav__link">
+        复习
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/9_course_select/" class="md-nav__link">
+        项目
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          网络并发(14)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="网络并发(14)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          网络并发(14)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          网络编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="网络编程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          网络编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/0_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%82%A8%E5%A4%87/" class="md-nav__link">
+        计算机网络储备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/1_TCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+        TCP简单实现
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/2_TCP%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        TCP粘包问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/3_%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E3%80%81UDP/" class="md-nav__link">
+        文件传输、UDP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/4_socketserver%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        socketserver模块
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          并发编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="并发编程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/5_%E8%BF%9B%E7%A8%8B%E7%90%86%E8%AE%BA%E5%82%A8%E5%A4%87/" class="md-nav__link">
+        进程理论储备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/6_%E8%BF%9B%E7%A8%8B%E5%BC%80%E5%8F%91%E5%BF%85%E7%94%A8/" class="md-nav__link">
+        进程开发必用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/7_%E8%BF%9B%E7%A8%8B%E5%BC%80%E5%8F%91%E5%BF%85%E7%9F%A5/" class="md-nav__link">
+        进程开发必知
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/8_%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B%21%21/" class="md-nav__link">
+        生产者消费者模型!!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/9_%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        线程开发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/10_GIL%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        GIL详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/11_%E8%BF%9B%E7%A8%8B%E6%B1%A0%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
+        进程池与线程池
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/12_%E5%8D%8F%E7%A8%8B/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/13_%E7%BD%91%E7%BB%9CIO%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        网络IO模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          项目
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          项目
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/14_%E6%89%8B%E6%92%B8ORM/" class="md-nav__link">
+        手撸ORM(简易版)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/15_%E4%BB%BF%E4%BC%98%E9%85%B7/" class="md-nav__link">
+        仿优酷
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_%E7%BD%91%E7%BB%9C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/16_%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99/" class="md-nav__link">
+        脚本编写
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    函数的定义调用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数参数传递
+  </a>
+  
+    <nav class="md-nav" aria-label="函数参数传递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    赋值操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    传递不可变对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    传递可变对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unboundlocalerror" class="md-nav__link">
+    UnboundLocalError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    函数形参和实参
+  </a>
+  
+    <nav class="md-nav" aria-label="函数形参和实参">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    定义函数时 -- 行参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    调用函数时 -- 实参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    默认形参陷阱
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    函数命名空间与作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="函数命名空间与作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    函数对象
+  </a>
+  
+    <nav class="md-nav" aria-label="函数对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    函数是第一类对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    函数嵌套定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    打破层级限制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    命名空间scope/栈区
+  </a>
+  
+    <nav class="md-nav" aria-label="命名空间scope/栈区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    命名空间概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    命名空间分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    命名空间与代码块的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    命名空间生命周期
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    变量加载查询顺序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legb" class="md-nav__link">
+    LEGB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globalslocals" class="md-nav__link">
+    globals()、locals()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globalnonlocal" class="md-nav__link">
+    global、nonlocal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>函数基础</h1>
+
+<p><font color='red' size=5>在函数开始之前,声明下我的一个基础概念的认知错误, namescope指的是命名空间! scope指的是作用域! 我混用了..在类的学习中才认识到这个问题.. 问题不大.</font></p>
+<h2 id="_1">函数的定义调用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>函数的使用必须遵循先定义,后调用的原则</strong></p>
+</blockquote>
+<p><font color='brown'>扩展: 提高健壮性</font> -- <code>https://www.cnblogs.com/liuqingzheng/p/11012099.html</code> 
+<font color='gray'>(该篇博文的开头写错了, python是一门强类型语言!!不是弱类型.)</font><br />
+<font size=2>使用该方式,传递的实参或者返回的数据不是指定的类型,不会报错,指定的那些东西也不会允许,只是辅助,写来方便看的..<br>像java和go这些编译型语言,必须指定类型并且传指定的类型,不然报错.. 非常严格.</font> <font color='brown'>动态一时爽, 重构火葬场.</font></p>
+<p>Python中的错误至少有两种:<br />
+<font color='blue'>语法/解析错误</font>&nbsp;&nbsp;&nbsp;&nbsp; --&nbsp;&nbsp;&nbsp;&nbsp; 语句或表达式在语法上的错误<br />
+<font color='blue'>异常</font>&nbsp;&nbsp;&nbsp;&nbsp; --&nbsp;&nbsp;&nbsp;&nbsp; 在执行时检测到的错误被称为异常</p>
+<p>函数 <strong>定义</strong> 阶段: <font color='blue'>只检测函数体的语法,不执行函数体代码</font><br />
+函数 <strong>调用</strong> 阶段: 执行函数体代码</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="sd">a.py模块下只有这些代码,运行a.py文件. 第5行会报语法错误.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sd">第二行没报错,证明了在定义阶段函数体代码是不会执行的!!</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">打开注释 调用func函数,开始执行函数体代码,第二行会报UnboundLocalError的异常</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">a</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">yuasyf</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="n">m</span> <span class="n">n</span> <span class="n">p</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># func()</span>
+</code></pre></div>
+<p>函数定义的 <strong>规范</strong> 写法:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">参数1</span><span class="p">,</span><span class="n">参数2</span><span class="p">,</span><span class="o">...</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  <span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">  函数功能描述消息</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">  :param 参数1:描述</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="sd">  :param 参数2:描述</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="sd">  :return: 返回值</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="sd">  &quot;&quot;&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  <span class="k">pass</span>
+</code></pre></div>
+<p><strong>函数返回值</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 函数中不写return或return不带任何返回值,都相当于在函数体最后一行添加 <code>return None</code></p>
+<hr />
+<h2 id="_2">函数参数传递<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>敲重点, 函数参数传递等同于直接赋值, 根据 定理1 , 函数被调用后, 函数的参数就是局部变量!!</p>
+</blockquote>
+<h3 id="_3"><font color='orange'>赋值操作</font><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>在理清函数参数传递之前,要先记住两个重要的定理!! 非常重要! 知其然要知其所以然..</p>
+</blockquote>
+<p>◎ <strong>定理1</strong>: <font color='brown'>python在作用域里对变量的 <strong>赋值操作</strong> 规则: </font><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>若被赋值的变量在该作用域已存在,则对其绑定新的对象; 若不存在,则将此次赋值视为对这个变量的定义..</font><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提一嘴哈,定理1的由来跟变量的可见性的判定有关!! </p>
+<p>◎ <strong>定理2</strong>: <font color='brown'>python中的绑定操作(eg 赋值)都是对象引用(内存地址)的传递</font><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color='purple'>换个说法,一系列的绑定操作都是在传递某一对象的地址给某一变量名进行绑定!!</font></p>
+<p><font color='blue'>引用是啥？引用就是指向. 变量名指向自身绑定对象的内存地址!! </font>  <br />
+​<font color='green'>被赋值 = (右侧的变量/对象们)被引用</font>&nbsp;&nbsp; --&nbsp;&nbsp;找到引用变量绑定的对象, 进行运算后的结果/对象 传递给被赋值的变量   </p>
+<p><strong>在这里,体会下 <font color='brown'>"python引用语义"</font> 带来的 <font color='brown'>坑</font>..</strong>  ▲需求:循环去除列表中的3</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="sd">分析: 我们知道,A操作会根据nums列表的 &quot;下标&quot; 1、2、3..的顺序循环取值赋值给i  </span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">    即i变量是nums[0]、nums[1]、nums[2]的引用</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">    当下标循环到2时,去除了nums列表中的第一个3,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="sd">    但因为remove操作,nums列表从下标为3开始的位置的数据都往前挪动了一位,最后变为了[1,2,3,3,4];</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="sd">    A循环操作的下标按照顺序接着循环到3,问题来啦,此时列表中nums[2]的值为3却被跳过了..</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>  <span class="c1"># A</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="n">nums</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># B</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>  <span class="c1"># [1, 2, 3, 4] 4</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># -- 正解 进行列表的浅拷贝</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[:]:</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="n">nums</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>  <span class="c1"># [1, 2, 4] 3</span>
+</code></pre></div>
+<h3 id="_4"><font color='orange'>传递不可变对象</font><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>针对不可变对象(tuple\str\bool\数字\不可变集合) </p>
+</blockquote>
+<p>很多资料将其称作 <strong>函数参数 --值传递(拷贝)</strong>  别被骗了,<font color='brown'>本质是传递内存地址</font>,<strong>还是引用语义</strong>,不是值语义!!<br />
+仔细想哈嘛, 不可变对象变不了啊, 一变就是重新赋值, id都变了.. 有点值类型那味,但不是值类型!!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sd">&quot;&quot;&quot;-- 分析</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">1&gt; 参数a接收到的是值的类型是数字,数字是一个不可变对象 </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">2&gt; So,会将接收到的值进行一份拷贝! -- 值传递(拷贝)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">   根据定理1,因为func函数内不存在变量a,所以会在func函数里新定义局部变量a,并将拷贝的值赋值给局部变量a.</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">   ★ 注意: func函数新定义的局部变量a与全局变量a无任何瓜葛!!</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>        
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="s1">&#39;3&#39;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">return</span> <span class="n">a</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;5&#39;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>  <span class="c1"># &#39;5&#39; &#39;53&#39;</span>
+</code></pre></div>
+<h3 id="_5"><font color='orange'>传递可变对象</font><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>函数参数 --引用传递(内存地址)</strong> 针对可变对象(list\dict\set)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">&quot;&quot;&quot;-- 初步分析</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">1&gt; 参数a接收到的是值的类型是列表,列表是一个不可变对象 </span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">2&gt; So,会对接收到的值进行引用 --  引用传递(内存地址)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">   根据定理1,因为func函数内不存在变量a,所以会在func函数里新定义局部变量a,将接收到的引用给局部变量a.</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">   ★ 注意: func函数新定义的局部变量a与全局变量a维护/指向的是同一个内存地址!!</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># -- 列表+=操作原地改变 等同于 a.extend([4])</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">return</span> <span class="n">a</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4] [1, 2, 3, 4]</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># --- --- ---</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>      <span class="c1"># -- 根据定理1,参数传递,定义了局部变量a. 此时[1,2,3]的引用计数为2</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>   <span class="c1"># -- 根据定理1,因为已经存在局部变量a,该赋值操作是在对局部变量a重新赋值</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>                  <span class="c1">#    重新赋值后,局部变量a重新绑定了一个新的对象[1,2,3,4]. 导致[1,2,3]的引用计数减1</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>                  <span class="c1">#    id(左边a) != id(右边a) 它俩不是同一个对象</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="k">return</span> <span class="n">a</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>  <span class="c1"># [1, 2, 3] [1, 2, 3, 4]</span>
+</code></pre></div>
+<h3 id="unboundlocalerror"><font color='orange'>UnboundLocalError</font><a class="headerlink" href="#unboundlocalerror" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>官方解释: When a name is not found at all, a <code>NameError</code> exception is raised.<br />
+If the name refers to a local variable that has not been bound, a <code>UnboundLocalError</code> exception is raised. <code>UnboundLocalError</code> is a subclass of <code>NameError</code>.</p>
+</blockquote>
+<p>翻译成人话: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 若引用了某个变量,此变量在各个作用域里都找不到,就会报错 <code>NameError</code> ;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 若引用的变量是 <strong>局部变量</strong> ,但还未完成绑定,就会报错 <code>UnboundLocalError</code> ..<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>UnboundLocalError</code>  是 <code>NameError</code> 的一个子类..</p>
+<p><strong>深度分析详见后文 “python变量的可见性” 部分的内容!!!</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="sd">代码第二行报错: local variable &#39;a&#39; referenced before assignment</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="sd">翻译过来: 局部变量&#39;a&#39;在赋值前被引用</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="sd">分析: func()函数没有参数,即不存在函数传递过程中定义局部变量</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="sd">     函数体内有对a的赋值操作,根据定理1,因为func函数内没有局部变量a,则该赋值操作是在定义局部变量a,而在赋值操作的右侧引用了还未被定义完成的局部变量a</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="sd">Ps:有很长一段时间我是这样理解这个报错的.开始回溯我的理解.理解出错的地方在于(-- --)包含起来的这段文字.</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="sd">(-- 解释器发现右侧的a变量在局部作用域里还未绑定好,就引用全局变量a-- ),而&quot;=&quot;左侧的a是局部变量,在一个赋值操作中,某一变量不可能既充当局部变量,又充当全局变量.. 进而产生了冲突.报错提示不是这样的,显然这样理解有偏差!!</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="sd">正确的过程应该是,调用函数,函数体代码开始执行,在执行之前会扫描函数体代码,看是否有绑定操作的代码,在这个案例里,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="sd">a = a + 4,这个语句,发现它是赋值操作(绑定操作的一种),a变量在该局部命名空间(就是存放变量名与绑定对象的栈区!!)便具备可见性,到这一步a变量已经定性为一个局部变量啦..但要注意一点,可见性的变量在完成绑定后,才能被引用.</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="sd">函数体代码开始真正执行,执行到a = a + 4这行代码,等式右边会先执行,发现右侧引用了还未绑定好的局部变量a.. </span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="sd">为啥报错,&quot;UnboundLocalError:局部变量&#39;a&#39;在赋值前被引用&quot;也就得到了合理的解释.</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="n">a</span> <span class="o">+=</span> <span class="mi">4</span>    <span class="c1"># a+=[4]报错 a.extend([4])不会报错</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="k">return</span> <span class="n">a</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># a=[] 当a是一个列表时</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1"># --- --- ---</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="c1"># `若引用的变量是局部变量,但还未完成绑定,就会报错UnboundLocalError.`</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1"># 注意报UnboundLocalError错误的前提是该变量是局部变量!!而下方的m是全局变量!</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># -- NameError: name &#39;a&#39; is not defined</span>
+</code></pre></div>
+<hr />
+<h2 id="_6">函数形参和实参<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>在上文我们知道 函数的参数传递 可看作是一个赋值操作  <code>a = ？</code>  定义的是函数的局部变量<br />
+具体一点, 参数分为形参和实参:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 形参 -- 本质就是变量名; 实参 -- 本质就是变量的值   </p>
+</blockquote>
+<h3 id="-"><font color='orange'>定义函数时 -- 行参</font><a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>定义函数时</strong> <font color='brown'>位置形参-默认形参-不定长位置形参-命名关键字形参-不定长关键字形参</font></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>形参</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>位置形参</td>
+<td>必须被传值,多一个不行少一个也不行!!</td>
+</tr>
+<tr>
+<td>默认形参</td>
+<td>意味着调用阶段可以不用为其赋值(可以不用指定对应的实参)!!</td>
+</tr>
+<tr>
+<td>不定长位置形参</td>
+<td><code>*args</code> 会将溢出的位置实参全部接收,然后以元祖的形式赋值给<code>*</code>后面的变量<code>args</code></td>
+</tr>
+<tr>
+<td>命名关键字形参</td>
+<td><code>*</code> (<code>*</code>或者<code>*args</code>) 后面的形参对应的实参必须按照key=value的形式进行传值</td>
+</tr>
+<tr>
+<td>不定长关键字形参</td>
+<td><code>**kwargs</code> 会将溢出的关键字实参全部接收,<br />然后以字典的形式赋值给<code>**</code>后面的变量<code>kwargs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-_1"><font color='orange'>调用函数时 -- 实参</font><a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>调用函数时</strong> <font color='brown'>位置实参  关键字实参</font></p>
+</blockquote>
+<p>1&gt; 两种实参可以混用, 但位置实参必须在关键字实参前面！且不能对一个形参重复赋值！<br />
+2&gt; 实参可以拆包！<br />
+&nbsp;&nbsp;&nbsp;&nbsp; 实参中带<code>*</code>,<code>*</code>会将该变量的值循环取出,打散成位置实参.<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<font color='gray'>即以后但凡碰到实参中带<code>*</code>的,它就是位置实参,应该立刻打散成位置实参来看 </font><br />
+&nbsp;&nbsp;&nbsp;&nbsp; 实参中带<code>**</code>,<code>**</code>会将该变量的值循环取出,打散成关键字实参.<br />
+&nbsp;&nbsp;&nbsp;&nbsp; <font color='gray'>即以后但凡碰到实参中带<code>**</code>的,它就是关键字实参,应该立刻打散成关键字实参去看</font></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">func3</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">a4</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">a5</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">a6</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="c1">#     11  22  33  44  20  10  (55, 66, 77)  {&#39;a10&#39;: 123}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">a4</span><span class="p">,</span> <span class="n">a5</span><span class="p">,</span> <span class="n">a6</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># func3(11, *[22, 33, 44, 55, 66, 77], **{&#39;a6&#39;: 10, &#39;a10&#39;: 123})</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">func3</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="n">a6</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">a10</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">):</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># 10</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">**</span><span class="n">p</span><span class="p">):</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>   
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># &#39;xyz&#39;</span>
+</code></pre></div>
+<h3 id="_7"><font color='orange'>默认形参陷阱</font><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>记住两点: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>除非程序结束,否则该共享空间不会被释放</strong>;  类似于全局变量&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>默认形参的值通常应该定义为不可变类型.</strong></p>
+</blockquote>
+<p><font color='gray'>egon说, "默认形参的值只在定义阶段赋值一次,即默认参数的值在函数定义阶段就已经固定死了".  </font><br />
+<font color='brown'>这意味着当函数被定义时将对表达式求值一次,相同的“预计算”值将在每次调用时被使用</font></p>
+<p><img alt="" src="../assets/%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0.png" /> </p>
+<p>○ one.py文件开始运行,创建全局scope, 从上往下依次执行代码<br />
+&nbsp;&nbsp;&nbsp;&nbsp; 执行第1 2行代码, 实现将x、func依次压入全局scope这个栈中<br />
+&nbsp;&nbsp;&nbsp;&nbsp; 执行第2行代码时, <font color='green'>发现该func函数有默认参数,则会创建一个 <strong>"共享空间"</strong> ,将该默认参数的值存储起来</font><br />
+○ 第3行代码暂时不会执行,往下执行第5行代码,调用func函数,并传递了一个不可变类型的参数.. 具体展开:<br />
+&nbsp;&nbsp;&nbsp;&nbsp; 1&gt; 调用函数时,解释器就会为该函数创建一个局部scope命名空间<br />
+&nbsp;&nbsp;&nbsp;&nbsp; 2&gt; 在函数真正执行之前扫描函数代码, 找绑定操作, 发现了有两个形参 ( <strong>形参是绑定操作的一种</strong> )<br />
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 因为绑定操作, 变量a和b便在刚创建的scope空间中具备了可见性!!意味着a和b变量定性为局部变量.. <br />
+&nbsp;&nbsp;&nbsp;&nbsp; 3&gt; 函数真正执行, &nbsp;变量绑定了5的内存地址,b变量绑定了共享空间中1的内存地址..<br />
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;和b变量完成绑定操作后,&nbsp;和b变量便可以被引用!! retuen语句中就有对&nbsp;和b变量的引用.<br />
+○ <strong>第5行代码执行完后,对应的局部scope空间会释放!!</strong> <br />
+&nbsp;&nbsp;&nbsp;&nbsp; 继续往下执行,只要是调用函数的代码就会创建新的局部scope,函数调用完就释放..<br />
+&nbsp;&nbsp;&nbsp;&nbsp; 三次函数调用,不同点在于第三次调用的func函数,没有用共享空间里的值.. 但对共享空间没有影响!! </p>
+<p>按理来说,堆区里的数据根据gc机制,引用计数为0会释放掉, 但共享空间里的值类似于全局变量..<br />
+<font color='blue'><strong>除非程序结束,否则该共享空间不会被释放!!!</strong></font> </p>
+<p>▲实验见真知: 默认参数是可变类型的数据带来的麻烦!!!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">555</span><span class="p">]):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># -- 等同于 a+=[1,2,3]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="k">return</span> <span class="n">a</span><span class="p">,</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># -- 函数第一次调用时共享空间为[555];第二次调用时没有用共享空间;第三次调用时共享空间为[555,1,2,3];</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">#    可以观察到,第一次id(a)和第三次id(a)是一样的..</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">#    证明第二次调用虽然没有用共享空间会导致[555]的引用计数为0,但该共享空间没有被释放!!</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">([]))</span>  <span class="c1"># -- 若不使用默认的[555],自己指定值,那么函数体内的a的id不是共享空间中a的id.</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span> 
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="sd">&quot;&quot;&quot;结果</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="sd">([555, 1, 2, 3], 140573741203776)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="sd">([1, 2, 3], 140692741938688)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="sd">([555, 1, 2, 3, 1, 2, 3], 140573741203776)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1"># --- --- ---</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="c1"># 依照python在作用域里对变量的赋值操作规则</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="c1"># 注意哦,函数体内对此默认形参重新赋值,是为此变量绑定了一个新的对象!!!</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">555</span><span class="p">]):</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># -- 局部变量a重新赋值,其id发生变化</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="k">return</span> <span class="n">a</span><span class="p">,</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="c1"># -- 可以观察到函数第一次和第二次调用的共享空间都为[555],其id也没有发生变化!</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="c1">#    证明 a = a + [1, 2, 3] 该行代码虽然导致[555]的引用计数为0,但该共享空间没有被释放！</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>  <span class="c1"># [555, 1, 2, 3]</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="p">())</span>  <span class="c1"># [555, 1, 2, 3]</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="sd">&quot;&quot;&quot;结果</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="sd">[555] 140263832453056</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="sd">([555, 1, 2, 3], 140263832467520)</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="sd">[555] 140263832453056</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="sd">([555, 1, 2, 3], 140263832428928)</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="c1"># --- --- --- 正解</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="k">def</span> <span class="nf">func0</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>    <span class="k">if</span> <span class="n">b</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>            <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="c1"># --- --- --- 换个思考角度理解 默认形参陷阱 </span>
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="sd">默认形参的共享空间可以简单理解成 一个全局变量</span>
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">555</span><span class="p">]):</span><span class="k">pass</span>  <span class="n">func</span><span class="p">()</span>  <span class="n">func</span><span class="p">()</span>
+<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">555</span><span class="p">]</span>       <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">b</span><span class="p">):</span><span class="k">pass</span>  <span class="n">func</span><span class="p">()</span>  <span class="n">func</span><span class="p">()</span>
+<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">555</span><span class="p">]</span>       <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span><span class="k">pass</span>    <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="_8">函数命名空间与作用域<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9"><font color='orange'>函数对象</font><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h5 id="_10"><font color='purple' size=4>函数是第一类对象</font><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>函数是第一类对象,<strong>可以当作数据进行传递</strong>！<code>a = lambda x:x+1</code> <br />
+1&gt; 被引用;  <code>b = a</code><br />
+2&gt; 当作参数传递; <code>func(a):pass</code><br />
+3&gt; 返回值是函数; <code>func(*args):return a</code><br />
+4&gt; 作为容器类型的元素 <code>[1,2,a,3]</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="n">foo</span><span class="p">,</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="n">bar</span><span class="p">,</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">}</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;: &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        <span class="n">dic</span><span class="p">[</span><span class="n">choice</span><span class="p">]()</span>
+</code></pre></div>
+<h5 id="_11"><font color='purple' size=4>函数嵌套定义</font><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<p>需求: 将圆相关的计算(面积、周长)集中在一起.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">):</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="k">def</span> <span class="nf">area</span><span class="p">():</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">():</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="k">return</span> <span class="n">area</span><span class="p">()</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;perimeter&#39;</span><span class="p">:</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>        <span class="k">return</span> <span class="n">perimeter</span><span class="p">()</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;perimeter&#39;</span><span class="p">))</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="c1"># -- Ps: max(max(2,3),8)</span>
+</code></pre></div>
+<h5 id="_12"><font color='purple' size=4>打破层级限制</font><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><strong>函数对象可以将定义在函数内的函数返回到全局中使用,从而打破函数的层级限制</strong></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;from inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">return</span> <span class="n">inner</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">f</span> <span class="o">=</span> <span class="n">f1</span><span class="p">()</span>  <span class="c1"># -- 拿到inner函数的内存地址.</span>
+</code></pre></div>
+<h3 id="scope"><font color='orange'>命名空间scope/栈区</font><a class="headerlink" href="#scope" title="Permanent link">&para;</a></h3>
+<h5 id="_13"><font color='purple' size=4>命名空间概念</font><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>在一个复杂的程序中,会定义成千上万个变量(函数名、类名都是变量), 为了便于追踪这些变量,让它们互不干扰,命名空间就应运而生啦!! </p>
+</blockquote>
+<p><strong>命名空间 scope/namespaces:</strong> <font color='gray'>这几种说法都正确</font><br />
+1&gt; <font color='brown'>存放名字与值绑定关系的地方</font>, 一般简说命名空间(栈区)为存放变量名的地方. <br />
+2&gt; 命名空间是键值对的集合! 变量名与值是一一对应的关系.. <br />
+3&gt; 命名空间是变量名到对象内存地址的映射.<br />
+<font color='gray'>eg:<code>x=1</code>  开辟一块空间,<code>1</code> 存放在内存中; <code>x:id(1)</code> 放在命名空间中</font></p>
+<p><font color='blue'>从 <strong>变量存储</strong> 的角度, 在定义变量时, <em>变量名与值内存地址的关联关系</em> 存放于栈区 <strong>stack</strong>, <em>变量值</em> 存放于堆区 <strong>heap</strong> .</font></p>
+<h5 id="_14"><font color='purple' size=4>命名空间分类</font><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>一个命名空间中不能有重名的变量名<br />
+<strong>各个命名空间是独立的</strong> , 没有任何关系的, 所以 <strong>不同的命名空间是可以有重名的,没有任何影响</strong></p>
+</blockquote>
+<p><font color='gray'>Ps: 一个套一个的名字空间中同名的变量名会形成名字空间链</font></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span> <span class="c1"># &lt;built-in function len&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">x</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">if</span> <span class="mi">3</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">z</span><span class="o">=</span><span class="mi">5</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">y</span><span class="o">=</span><span class="mi">2</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">func</span><span class="p">()</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># -- 内置命名空间中的对象可以通过 dir(__builtins__) 命令查看.</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内置命名空间    <font color='gray'>built-in names</font></td>
+<td>存放python解释器自带的名字 <font color='green'>len</font></td>
+</tr>
+<tr>
+<td>全局命名空间    <font color='gray'>global names</font></td>
+<td>存放模块中<strong>定义</strong>的名字(该模块中除开内置的和局部的,都是全局的)<br /><font color='green'>x  func  z</font></td>
+</tr>
+<tr>
+<td>局部命名空间    <font color='gray'>local names</font></td>
+<td>存放函数调用时函数中<strong>定义</strong>的名字  <font color='green'>y</font><br /><font color='brown'>提一嘴,严谨点说应该说是代码块里绑定操作中的名字!!</font></td>
+</tr>
+</tbody>
+</table>
+<p><font color='green'>Ps: 严谨一点, 解释器还为程序使用 <code>import</code>  语句加载的任何模块创建一个全局命名空间</font><br />
+<font color='gray'><strong>注意:</strong> 全局和局部命名空间的实现是字典, 但内置命名空间不是!</font></p>
+<h5 id="_15"><font color='red' size=4>命名空间与代码块的关系</font><a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<p><strong><font color='gray'>代码块通常是指, 类、函数 中包含的代码!!</font></strong><br />
+Python解释器会在 <strong>执行</strong> 函数代码块时,为其分配一个局部命名空间..</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="sd">0    不是一个代码块,是除类和函数以外的代码,归属于全局命名空间管!</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="sd">1-2  是一个代码块</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="sd">3-10 是一个代码块</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="sd">5-10 是一个代码块</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="sd">7-9  是一个代码块</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="sd">(后三个代码块实现了代码块的嵌套)</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="sd">代码块与命名空间</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="sd">  上述的四个代码块,每个代码块在执行时,python解释器会分配一个局部命名空间(是真实的内存空间)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="sd">  注意哦,函数在调用时才会执行！</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="sd">  还要特别注意,代码块可以嵌套,但命名空间是相互独立的!!</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># 0 </span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">def</span> <span class="nf">func0</span><span class="p">():</span>            <span class="c1"># 1</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="k">return</span> <span class="mi">1</span>            <span class="c1"># 2</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>             <span class="c1"># 3</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c1"># 4</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>    <span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    <span class="c1"># 5</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>        <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>           <span class="c1"># 6</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>        <span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>    <span class="c1"># 7</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>            <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>       <span class="c1"># 8</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># 9</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>        <span class="k">return</span> <span class="n">func2</span>    <span class="c1"># 10</span>
+</code></pre></div>
+<h5 id="_16"><font color='purple' size=4>命名空间生命周期</font><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><font color='red'>指的是命名空间中的 变量名!! 不是内存中的变量值的生命周期!! </font></p>
+</blockquote>
+<p>内置: 在解释器启动时直接创建加载,直到解释器关闭时失效. <br />
+全局: 在文件执行时生效,在文件执行完毕时失效.
+局部: 在 <strong>文件执行过程中</strong> ,如果调用了某个函数才会 <strong>临时生效</strong> ,在 <strong>函数执行完毕后失效</strong>.</p>
+<p><font color='gray'>局部命名空间的声明周期是自其建立开始,到它们各自的函数执行完毕终止.. 当这些命名空间的函数终止时, Python可能不会立即回收分配给这些命名空间的内存, 但是对其中对象的所有引用都将失效..</font></p>
+<h5 id="_17"><font color='purple' size=4>变量加载查询顺序</font><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>变量加载进命名空间的顺序: 内置 --&gt; 全局 --&gt; 局部<br />
+变量在命名空间里查找的顺序: 从当前位置的局部命名空间 --&gt; 全局 --&gt; 内置</p>
+</blockquote>
+<p><strong>通俗点解释下: </strong> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在代码从而下的执行过程中,不断有变量被加载进对应的命名空间.. 当遇到def语句,会先将函数名字加载进全局命名空间,但函数体代码不会执行,会暂时跳过; 函数内部的变量要等到函数调用的时候才会加载进局部命名空间... 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 引用的变量在命名空间里查找的顺序(作用域关系): 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 举个例子,函数里使用了x变量,但此变量不在该函数的局部命名空间里,就会去全局命名空间里找... 当然实际情况会更复杂.后文会详细阐述作用域.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="sd">&quot;&quot;&quot;变量加载进命名空间</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="sd">第几行代码   全局              局部</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="sd">1          func    </span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="sd">4          func   x:1</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="sd">5          func   x:1        y:2</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="sd">6          func   x:10       y:2</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="sd">记住一句话,作用域关系是在函数定义阶段就固定死了,与函数的调用位置无关!!</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="n">func</span><span class="p">()</span>  <span class="c1"># 1</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="n">func</span><span class="p">()</span>  <span class="c1"># 10 -- 在调用函数之前,全局命名空间里的x的值被改为10啦</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="c1"># ---  --- ---</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="n">a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="n">b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># 30</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># 30</span>
+</code></pre></div>
+<hr />
+<h3 id="_18"><font color='orange'>作用域</font><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h5 id="_19"><font color='purple' size=4>概念</font><a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>严谨点说,python解释器会给每个代码块分配命名空间,代码块中的绑定操作使得变量在命名空间具备可见性.绑定操作完成后,变量可被引用..<br />
+命名空间相互独立,不同命名空间中可能具备相同的变量名,当代码块中出现变量引用时,引用哪个命名空间中的变量呢？这就需要作用域!!</p>
+</blockquote>
+<p><font color='blue'><strong>(代码块中的绑定操作 -- 命名空间存储对应的变量名; 代码块中的变量引用 -- 按作用域关系进行查找! )</strong></font></p>
+<p><img alt="" src="../assets/%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F.png" /> </p>
+<p><font color='gray'>Ps: 代码块环境是什么? 该code block中所有scope中可见的name的集合构成block的环境..</font></p>
+<p><font color='red'><strong>作用域即代码块!!</strong> </font> <font color='gray'><strong>scope空间里的变量作用的范围就是所对应的代码块,这些变量在该代码块中是可见的</strong></font><br />
+<strong><font color='red'>作用域关系LEGB/函数里引用变量的搜索路径/依次从LEGB作用域对应的scope中查找!</font></strong> <br />
+<font color='gray'><strong>从嵌套的里层往外层查找</strong></font><br />
+<strong>作用域关系</strong> 查找顺序LEGB,所以跟 <strong>代码块的嵌套</strong> 有关, 查的是LEGB对应的scope,所以跟 <strong>代码块的环境</strong> 有关!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">内心OS</span><span class="p">:</span><span class="n">感觉自己将简单的东西复杂化了</span><span class="p">,</span><span class="n">想与专业名词一一对应上</span><span class="o">.</span> <span class="err">╮</span><span class="p">(</span><span class="err">￣▽￣</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="err">╭</span>  <span class="n">当作加深印象理解吧</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">解释下上图</span><span class="p">:</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">该程序有三个函数</span><span class="p">,</span><span class="n">可划分出代码块A</span><span class="err">、</span><span class="n">B</span><span class="err">、</span><span class="n">C</span><span class="p">,</span><span class="n">这三个代码块是相互嵌套的</span><span class="o">.</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="p">(</span><span class="n">代码块A包含1</span><span class="o">-</span><span class="mi">10</span><span class="n">行全部代码</span><span class="p">;</span><span class="n">代码块B包含4</span><span class="o">-</span><span class="mi">9</span><span class="n">行代码</span><span class="p">;</span><span class="n">代码块C包含7</span><span class="o">-</span><span class="mi">9</span><span class="n">行代码</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">A代码块会执行红色框起来的那两部分代码</span><span class="p">(</span><span class="n">B函数体代码是不会执行的</span><span class="p">),</span><span class="n">将绑定操作代码里的变量存到局部scope中</span><span class="err">!</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="n">即A代码会依次将a</span> <span class="n">b</span> <span class="n">funcB</span> <span class="n">m压入scope</span><span class="p">(</span><span class="n">funcA</span><span class="p">)</span><span class="n">这个栈中</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="n">B代码块</span><span class="err">、</span><span class="n">C代码块的执行同理</span><span class="o">.</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="n">scope空间里的变量作用的范围就是所对应的代码块</span><span class="o">.</span> <span class="n">代码块A的局部scope的作用范围就是代码块A</span><span class="o">.</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="n">作用域即代码块</span><span class="err">!!</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="n">代码块引用变量的查找顺序LEGB从代码块环境的角度解释是解释得通的</span><span class="o">.</span><span class="n">但感觉复杂化了</span><span class="o">.</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="n">代码块引用变量先从本地作用域</span><span class="o">/</span><span class="n">里层代码块所对应的scope中查找</span><span class="p">;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="n">若没有再去嵌套作用域</span><span class="o">/</span><span class="n">中间层代码块所对应的scope中查找</span><span class="p">;</span><span class="n">以此类推</span><span class="o">.</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="n">在这里</span><span class="p">,</span><span class="n">代码块C中引用了变量m</span><span class="p">,</span><span class="n">在scope</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="n">代码块C的环境中没有</span><span class="p">,</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>    <span class="n">在scope</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">/</span><span class="n">代码块B的环境中查找</span> <span class="n">也没有</span><span class="o">.</span> 
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>           <span class="s2">&quot;你想一下代码块B的环境=scope(B)+scope(C),scope(C)中没有是不是就剩scope(B)啦&quot;</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>    <span class="n">最后在scope</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="n">里找到啦</span><span class="err">！</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    <span class="n">依次从LEGB作用域对应的scope中查找</span><span class="err">!</span>
+</code></pre></div>
+<p>提一嘴, 通常在编程语言中, 变量的作用域从代码结构 (代码块) 角度来看, 有块级、函数、类、模块、包等由小到大的级别.但是在Python中, 没有块级作用域, 也就是类似if语句块、for语句块、with上下文管理器等等是不存在作用域概念的, 他们等同于普通的语句！<br />
+<font color='gray'><strong>换个说法:</strong> 只有模块module,类class以及函数def、lambda才会引入新的作用域(即开辟新的命名空间), 其它的代码块(如 if/elif/else/、try/except、for/while等)是不会引入新的作用域的..</font></p>
+<h5 id="legb"><font color='purple' size=4>LEGB</font><a class="headerlink" href="#legb" title="Permanent link">&para;</a></h5>
+<p>在表达式中引用变量时,Python解释器将按照如下顺序遍历各作用域,以解析该引用:<br />
+局部作用域/局部命名空间里变量的作用范围&nbsp;&nbsp;&nbsp;&nbsp; -- 当前函数的范围 <strong>L</strong> &nbsp;&nbsp;&nbsp;&nbsp; Local<br />
+内嵌作用域/内嵌命名空间里变量的作用范围&nbsp;&nbsp;&nbsp;&nbsp; -- 函数嵌套里外围函数的范围 <strong>E</strong> &nbsp;&nbsp;&nbsp;&nbsp; Enclosing<br />
+全局作用域/全局命名空间里变量的作用范围&nbsp;&nbsp;&nbsp;&nbsp; -- 当前py模块的范围(不包含import的py模块) <strong>G</strong> &nbsp;&nbsp;&nbsp;&nbsp; Global<br />
+内置作用域/内置命名空间里变量的作用范围&nbsp;&nbsp;&nbsp;&nbsp; -- 包含len及str等函数的那个scope <strong>B</strong> &nbsp;&nbsp;&nbsp;&nbsp; Built-in</p>
+<p>若在这些地方都找不到名称相符的变量,就会抛出NameError异常..</p>
+<p><font color='brown'><strong>作用域关系(函数里引用变量的搜索路径)是在函数定义阶段就固定死了,与函数的调用位置无关!!</strong></font> <br />
+<font color='gray'>作用域是scope里变量作用的范围,就是scope所在代码块. 而LEGB遵循最内作用域原则,所以定义阶段就固定死了!</font></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># -- 提一嘴,f1函数结束后,x变量还能被函数嵌套中的内部函数inner访问到..Why？因为x是自由变量！</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>          <span class="c1">#    后续的闭包部分会详细阐述!!</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># -- 作用域关系是在函数定义阶段就固定死了,与函数的调用位置无关!!</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="k">return</span> <span class="n">inner</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">f</span> <span class="o">=</span> <span class="n">f1</span><span class="p">()</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">111</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="n">f</span><span class="p">()</span>  <span class="c1"># -- 与调用位置无关</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="n">bar</span><span class="p">()</span>    <span class="c1"># 1</span>
+</code></pre></div>
+<h5 id="globalslocals"><font color='purple' size=4>globals()、locals()</font><a class="headerlink" href="#globalslocals" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>python提供了两个内置函数globals()和locals(),前者返回全局命名空间的字典,后者返回局部命名空间字典..</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="nb">globals</span><span class="p">()),</span><span class="nb">type</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">(</span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">dict</span><span class="s1">&#39;&gt;, &lt;class &#39;</span><span class="nb">dict</span><span class="s1">&#39;&gt;)</span>
+</code></pre></div>
+<p><font color='brown'><strong>注意:</strong> <code>globals()</code>返回全局命名空间的实际引用; 随便怎么折腾都是在操作全局命名空间, 类似于 a = b</font></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="sd">可以通过引用对象的变量名x,以常规的方式访问该对象..亦可以通过全局命名空间字典间接访问它</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;x&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>      <span class="c1"># -- 注意,变量名是以字符串的形式作为键的</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kc">True</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="s1">&#39;foo&#39;</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">globals</span><span class="p">()[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="s1">&#39;foo&#39;</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="ow">is</span> <span class="nb">globals</span><span class="p">()[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>   <span class="c1"># -- x的值与&quot;x&quot;键所对应vlaue值的内存地址相同</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="kc">True</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="sd">可以使用globals()函数在全局命名空间中创建和修改全局变量</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;z&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>  <span class="c1"># -- 全局命名空间中没有变量y</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">glo</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()</span>    <span class="c1"># -- 注意:glo是全局命名空间的引用</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">glo</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># -- 创建  等同于 globals()[&#39;y&#39;] = 100</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="mi">100</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">glo</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123</span>  <span class="c1"># -- 修改</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="mi">123</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="sd">globals结合format的应用</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;</span><span class="si">{x}</span><span class="s2">,</span><span class="si">{y}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">globals</span><span class="p">())</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="s1">&#39;1,2&#39;</span>
+</code></pre></div>
+<p><font color='brown'><code>locals()</code>返回的不是对局部命名空间的引用!! 那到底返回的是什么呢？</font><br />
+查阅资料,很多博客说是拷贝、副本.. 云里雾里的. 自己做了实验后, 发现这样的描述都不够严谨..</p>
+<p><font color='brown'> <strong>先说结论</strong> </font>: locals()函数返回的是对局部命名空间的一个<strong>"拷贝"</strong> (<font color='gray'>打了引号哦</font>) ,但此拷贝有点特殊,它具备浅拷贝的一些特点,同时当我们再次调用locals()函数时,它会 <strong>同步更新 </strong>"拷贝"的值.. <br />
+此"拷贝"添加,改变可变类型的变量是ok的,但修改不可变变量是不成功的..</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="sd">什么是拷贝、副本、视图？</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="sd">参考链接: https://blog.csdn.net/Reborn214/article/details/124539097</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="sd">    简单来说,副本、视图是python numpy数组中的专业名词,但其具备的特性跟拷贝差不多.</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="sd">    numpy中引用 = python中引用; numpy中视图 = python中浅拷贝; numpy中副本 = python中深拷贝</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="sd">    值得一提的是,引用一般发生在赋值操作(python赋值都是引用&quot;内存地址&quot;传递)</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="sd">还要注意一个坑!!</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="sd">id():返回对象的“标识值”.该值是一个整数,在此对象的生命周期中保证是唯一且恒定的.</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="sd">     两个生命期不重叠的对象可能具有相同的id()值..</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="sd">举例分析</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="sd">     没有将a[:]赋值给变量进行引用,当执行完a[:]后,这个对象就释放啦.但这块内存可能并没有来得及释放.</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="sd">     当我们新执行a[:]的时候,用的将会是同一个内存,并没有申请新的内存.</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="sd">     这会让我们觉得两个a[:]与a[:]是同一个对象</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="sd">&gt;&gt;&gt; a = [1,2,3]</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="sd">&gt;&gt;&gt; id(a[:])</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="sd">140417051683648</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="sd">&gt;&gt;&gt; id(a[:])</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="sd">140417051684544</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="sd">&gt;&gt;&gt; id(a[:])</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="sd">140417051684544</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="sd">&gt;&gt;&gt; id(a[:]) is id(a[:])  # -- 让其处于同一生命周期,每次浅拷贝都会生成不同的对象,结果肯定为False</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="sd">False</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>    <span class="c1"># -- 验证了id()的坑.</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>  <span class="c1"># 140204424022656</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>  <span class="c1"># 140204424022656</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span> <span class="ow">is</span> <span class="nb">id</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>  <span class="c1"># False</span>
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>
+<a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>    <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>    <span class="n">n</span> <span class="o">=</span> <span class="mi">66</span>
+<a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>    <span class="n">loc</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>  <span class="c1"># -- loc是局部命名空间的“拷贝” loc是对此&quot;拷贝&quot;的引用!!</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>      <span class="c1"># {&#39;m&#39;: [1, 2, 3], &#39;n&#39;: 66}</span>
+<a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>
+<a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>    <span class="sd">&quot;&quot;&quot;来,简化一下</span>
+<a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="sd">    import copy</span>
+<a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="sd">    scope = {&#39;m&#39;: [1, 2, 3], &#39;n&#39;: 66}     # -- 指代局部命名空间</span>
+<a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="sd">        loc = copy.copy(scope)                # -- 指代局部命名空间的浅拷贝</span>
+<a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="sd">        loc[&#39;m&#39;].append(4)</span>
+<a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="sd">        scope.append(5)</span>
+<a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a><span class="sd">        scope[&#39;n&#39;] = 88</span>
+<a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a><span class="sd">        scope[&#39;x&#39;] = 20</span>
+<a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a><span class="sd">        loc[&#39;n&#39;] = 77</span>
+<a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a><span class="sd">        print(scope)    # -- {&#39;m&#39;: [1, 2, 3, 4, 5], &#39;n&#39;: 88, &#39;x&#39;: 20}</span>
+<a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a><span class="sd">        print(loc)      # -- {&#39;m&#39;: [1, 2, 3, 4, 5], &#39;n&#39;: 77}</span>
+<a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a>    <span class="n">loc</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># -- 试图通过&quot;拷贝&quot;过来的字典修改局部命名空间里的可变类型的变量m 成功</span>
+<a id="__codelineno-18-49" name="__codelineno-18-49" href="#__codelineno-18-49"></a>    <span class="n">m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># -- 在局部命令空间里修改了m变量对应的值</span>
+<a id="__codelineno-18-50" name="__codelineno-18-50" href="#__codelineno-18-50"></a>    <span class="n">n</span> <span class="o">=</span> <span class="mi">88</span>  <span class="c1"># -- 在局部命令空间里修改了n变量对应的值</span>
+<a id="__codelineno-18-51" name="__codelineno-18-51" href="#__codelineno-18-51"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># -- 在局部命名空间里添加了x变量</span>
+<a id="__codelineno-18-52" name="__codelineno-18-52" href="#__codelineno-18-52"></a>    <span class="c1"># -- 可以发现此&quot;拷贝&quot;,具备浅拷贝的特性</span>
+<a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>  <span class="c1"># {&#39;m&#39;: [1, 2, 3, 4, 5], &#39;n&#39;: 66}</span>
+<a id="__codelineno-18-54" name="__codelineno-18-54" href="#__codelineno-18-54"></a>    <span class="n">loc</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">77</span>  <span class="c1"># -- 试图通过&quot;拷贝&quot;过来的字典修改局部命名空间里的可变类型的变量n 失败</span>
+<a id="__codelineno-18-55" name="__codelineno-18-55" href="#__codelineno-18-55"></a>    <span class="n">loc</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">250</span> <span class="c1"># -- loc添加是成功的</span>
+<a id="__codelineno-18-56" name="__codelineno-18-56" href="#__codelineno-18-56"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>  <span class="c1"># {&#39;m&#39;: [1, 2, 3, 4, 5], &#39;n&#39;: 77, &#39;q&#39;: 250}</span>
+<a id="__codelineno-18-57" name="__codelineno-18-57" href="#__codelineno-18-57"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>  <span class="c1"># {&#39;m&#39;: [1, 2, 3, 4, 5], &#39;n&#39;: 88, &#39;q&#39;: 250, &#39;loc&#39;: {...}, &#39;x&#39;: 20}</span>
+<a id="__codelineno-18-58" name="__codelineno-18-58" href="#__codelineno-18-58"></a>
+<a id="__codelineno-18-59" name="__codelineno-18-59" href="#__codelineno-18-59"></a>    <span class="c1"># -- 再次调用locals()后,&quot;拷贝&quot;同步更新了.</span>
+<a id="__codelineno-18-60" name="__codelineno-18-60" href="#__codelineno-18-60"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>  <span class="c1"># {&#39;m&#39;: [1, 2, 3, 4, 5], &#39;n&#39;: 88, &#39;q&#39;: 250, &#39;loc&#39;: {...}, &#39;x&#39;: 20}</span>
+<a id="__codelineno-18-61" name="__codelineno-18-61" href="#__codelineno-18-61"></a>
+<a id="__codelineno-18-62" name="__codelineno-18-62" href="#__codelineno-18-62"></a><span class="n">func</span><span class="p">()</span>
+</code></pre></div>
+<h5 id="globalnonlocal"><font color='purple' size=4>global、nonlocal</font><a class="headerlink" href="#globalnonlocal" title="Permanent link">&para;</a></h5>
+<p>回顾下Python在作用域里对变量的赋值操作规则:<br />
+<font color='brown'>若这个变量在该作用域存在(已经定义), 则对其绑定新的对象; 若不存在,则将这次赋值视为对这个变量的定义..</font></p>
+<p>global &nbsp;&nbsp;&nbsp;&nbsp; -- 不管是在函数嵌套的哪一层,对x变量的赋值操作都是修改全局作用域里的那个x变量!!<br />
+nonlocal &nbsp;&nbsp;&nbsp;&nbsp; -- 如果在闭包内给x变量赋值,那么修改的其实是闭包外那个作用域里的x变量..<br />
+<strong>nonlocal的唯一限制在于,不能延伸到模块级别,这是为了防止它污染全局变量..</strong></p>
+<p><font color='gray'>Ps: 提一嘴闭包,后续会详细阐述. 函数嵌套,内部函数引用外部函数的参数或变量,就构成了闭包..</font></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="sd">★ --global</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="sd">    在局部若想修改全局的不可变类型,需要借助global声明</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="sd">    在局部若想修改全局的可变类型,不需要借助任何声明,可以直接修改</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="sd">    若全局中没有x变量,global语句和赋值的组合(不管处于嵌套的哪一层)可以间接在局部中创建x全局变量</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="k">global</span> <span class="n">m</span>  <span class="c1"># -- 申明m变量是全局变量</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>    <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    <span class="nb">globals</span><span class="p">()[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># -- n变量在全局中存在的话,此赋值操作就是在修改;通常不会这么做,完全没必要</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="n">func</span><span class="p">()</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="n">func</span><span class="p">()</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># [1,1]</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># 10,20</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="sd">★ --nonlocal 指非全局最近的那个</span>
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>         <span class="c1"># E f1的参数对f2而言</span>
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">111</span>       <span class="c1"># E 此处的x对f2而言</span>
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>    <span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>     <span class="c1"># E f2的参数对f3而言</span>
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>        <span class="n">x</span> <span class="o">=</span> <span class="mi">222</span>   <span class="c1"># E 此处的x对f3而言</span>
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>        <span class="k">def</span> <span class="nf">f3</span><span class="p">():</span>
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>            <span class="k">nonlocal</span> <span class="n">x</span>  <span class="c1"># -- 若f1函数嵌套里没有x 则报错找不到x变量</span>
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>            <span class="n">x</span> <span class="o">=</span> <span class="mi">333</span>     <span class="c1"># -- 改的是最近的x = 222的值</span>
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>        <span class="n">f3</span><span class="p">()</span>
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   <span class="c1"># 333</span>
+<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>        <span class="c1"># {&#39;f3&#39;: &lt;function f1.&lt;locals&gt;.f2.&lt;locals&gt;.f3 at 0x7fc60c71c9d0&gt;, &#39;x&#39;: 333}</span>
+<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>        <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>  <span class="c1"># f2的局部作用域</span>
+<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>    <span class="n">f2</span><span class="p">()</span>
+<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># 111</span>
+<a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>    <span class="c1"># {&#39;x&#39;: 111, &#39;f2&#39;: &lt;function f1.&lt;locals&gt;.f2 at 0x7fc60c71c790&gt;}</span>
+<a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span> <span class="c1"># f1的局部作用域</span>
+<a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>
+<a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a><span class="n">f1</span><span class="p">()</span>
+<a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 1</span>
+</code></pre></div>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../03_%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%93%88%E5%B8%8C/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数据类型之哈希" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              数据类型之哈希
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../05_%E5%87%BD%E6%95%B0%E9%AB%98%E7%BA%A7/" class="md-footer__link md-footer__link--next" aria-label="下一页: 函数高级" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              函数高级
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 from Dc_OnePiece
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.instant", "navigation.tracking", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+        <script src="../../resources/js/extra.js"></script>
+      
+    
+  </body>
+</html>

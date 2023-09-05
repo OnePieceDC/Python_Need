@@ -1,0 +1,32 @@
+/* 整体内容占据宽度 */
+.md-grid {
+    max-width: 64rem;
+}
+
+/* 隐藏页脚 */
+/* .md-footer-meta__inner {
+    display: none;
+} */
+
+/* 改变当前选中目录的颜色 */
+.md-nav__item .md-nav__link--active {
+    color: #ea8685;
+}
+
+/* 更改h1标签内容的颜色 */
+.md-typeset h1 {
+    /* color: #718093; */
+    /* color: #01a3a4; */
+    color: #ea8685;
+}
+
+/* 更改导航栏的背景颜色 */
+[data-md-color-primary=blue-grey] {
+    --md-primary-fg-color: #718093;
+}
+
+
+/* 更改右侧 目录一丢丢排版的间距 */
+.md-sidebar--secondary .md-nav {
+    padding-left: 0.8rem;
+}
